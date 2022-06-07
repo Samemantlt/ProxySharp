@@ -6,6 +6,6 @@ namespace ProxySharp.Tcp.ConnectionProviders.Abstractions
 {
     public interface IConnectionProvider
     {
-        Task<TcpClient> Connect(string host, int port, CancellationToken cancellationToken);
+        Task<TcpClient> Connect(string host, int port, CancellationToken cancellationToken = default);
     }
 }
