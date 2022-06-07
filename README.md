@@ -1,6 +1,9 @@
 # ProxySharp
 C# Library that allows to use proxies easy&amp;fast
 
+![Nuget](https://img.shields.io/nuget/v/ProxySharp.Tcp)
+![Nuget](https://img.shields.io/nuget/dt/ProxySharp.Tcp)
+
 ## Example:
 ```csharp
 IConnectionProvider connectionProvider = new Socks4ConnectionProvider("1.2.3.4", 1080);
