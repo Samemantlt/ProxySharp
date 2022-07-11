@@ -83,7 +83,7 @@ namespace ProxySharp.Tcp.ConnectionProviders.Socks4
                 throw new ArgumentException(
                     $"Hostname '{nameof(host)}' must have at least one address in `System.Net.Dns.GetHostAddresses`");
 
-            TcpClient tcpClient = new TcpClient(ProxyHost, ProxyPort);
+            TcpClient tcpClient = new TcpClient();
 
             CancellationTokenRegistration registration = cancellationToken.Register(() => tcpClient.Close());
                 
@@ -92,7 +92,7 @@ namespace ProxySharp.Tcp.ConnectionProviders.Socks4
                 try
                 {
                     cancellationToken.ThrowIfCancellationRequested();
-                    await tcpClient.ConnectAsync(host, port).WithCancellationToken(cancellationToken);
+                    await tcpClient.ConnectAsync(ProxyHost, ProxyPort).WithCancellationToken(cancellationToken);
                 }
                 catch (OperationCanceledException ex)
                 {
